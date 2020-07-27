@@ -83,4 +83,11 @@ public class TodoResource {
 		return ResponseEntity.notFound().build();
 	}
 
+	@RequestMapping(method=RequestMethod.POST, path="/todo/insert")
+	public ResponseEntity<Object> insertTodo(@RequestBody AppTodo objAppTodo) throws ParseException {
+		System.out.println(objAppTodo.toString());
+		objAppTodo.setId(5);
+		alTodoList.add(objAppTodo);
+		return ResponseEntity.ok(objAppTodo);
+	}
 }
